@@ -1,0 +1,89 @@
+
+		BACKD
+
+What is Backd:
+
+	Backd is a daemon, looking at backup directive and doing
+	everything as an autonomous process, I try to have it as
+	simple and forgiving as possible.
+
+	The idea behind backd, is to just receive mail asking
+	to insert a tape with a specific ID in the tape device, 
+	backd will do the backup and advice sysadmin when the 
+	scheduled backup is completed, requesting then the next
+	tape for the next schedled backup (and so one....)
+
+Critical components:
+
+	All files are located from a base directory (usualy
+	/var/lib/backd).
+
+	conf/tapelist:
+	In order to be useable, backd need to now about a
+	set of tapeid, that list is stored in the file
+	tapelist (a tapelist example is provided). 
+	You need to prepare a set of tape and to "marke"
+	those tapes, such backd can be sure it is writing
+	the right media.
+	To "marke" tapes, use the provided backd utility
+	named "marker" (see "marker" manual).
+
+	conf/tapedev:
+	in order to now were to use the tape, you must
+	have a relation between tape type and a device.
+	that's the tapedev purpose. An example is
+	provided in conf and it is (I believe) really
+	straightfoward to undertand.
+
+	backlist/*
+	That were you put you backup directives (an example 
+	is provided see conf.released/bckdlist.exp).
+	Each directive include a backup frequency, media type,
+	a to kept value, and a included/excluded set of file.
+	If you have more than one backup which must be done
+	at a specific time, all data to backup will be stored
+	on the same media as backup segment.
+	You can use "reader" to read a specific backup from the tape. 
+	Information extracted need to feed an desarchiver 
+	(usualy cpio -i) to do the actual recovery.
+	You can have MORE THAN ONE backup file, each one with its
+	own set of included/excluded directive and backup
+	frequency. backd will merge all the informations to collect
+	backup and put them on the same media.
+
+	data/*
+	That the backd working directory, can be looked at, but unwise
+	to modified or to erase files in this area unless you know very
+	well what you are doing.
+
+
+Starting backd:
+	
+	Backd is a daemon which need to be started during
+	the booting phase, once aware about available tape,
+	backd should take care of backup all day long....
+
+	If you are using RPM, the install process setup
+	a S91backd in rc3.d and rc5.d. backd should restart
+	automaticaly even if you reboot your system.
+
+
+components:
+
+	backd has 3 components, the daemon itselft called
+	backd, a tape marker to write a marker on the
+	tape itself, the reader to read a tape once
+	done by backd. See the manual for the different
+	program available option.
+
+	Note: backd is using cpio to write a tape, such
+	to recover a tape you just need to skip over
+	the tape marker and feed cpio to recover file
+	inside the tape (ex: dd if=/dev/tape skip=2 | cpio -i).
+
+
+Copyright issues:
+
+	backd is GPL, sources are available, suggestions, patchs, 
+	comments are welcomed. Send E-mail to jmp@safe.ca
+	
