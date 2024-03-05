@@ -1,0 +1,26 @@
+#This is an example if backup file, the name of that file
+#is the backup name.
+#this file include level which allow to take included
+#and excluded information
+#---------------------------------------------------------
+#let define the critical level backeup definition
+levels=critical
+#---------------------------------------------------------
+#now you define all the include file for that backup
+#an include for each directory
+#
+#All included are assumed to be from root directory "/",
+#if "/" as first charactere in the directory, it is removed
+included=etc/rc.d
+included=/etc/sysconfig
+included=var/log
+#
+#---------------------------------------------------------
+#You can also define excluding patterns
+#
+excluded=*~
+excluded=*.o
+#---------------------------------------------------------
+#lets define another level
+levels=systems
+#---------------------------------------------------------

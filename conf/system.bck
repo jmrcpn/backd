@@ -1,0 +1,18 @@
+#---------------------------------------------------------
+#let define the critical level backeup definition
+level=systems
+#---------------------------------------------------------
+#now you define all the include file for that backup
+#an include for each directory
+#
+#All included are assumed to be from root directory "/",
+#if "/" as first charactere in the directory, it is removed
+included=/etc
+included=/home
+#
+#---------------------------------------------------------
+#You can also define excluding patterns
+#
+excluded=*~
+excluded=*.swp
+#---------------------------------------------------------

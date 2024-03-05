@@ -1,0 +1,34 @@
+#-----------------------------------------------------------------------------
+#this file describe the tape liste available to
+#backd for backup purpose.
+#-----------------------------------------------------------------------------
+#format:
+#TAPEID	TYPE	SIZE	LASTUSED FROZEN
+#	TAPEID 		is free sequence (no space allowed, a-z,A-X,1-9-)
+#	TYPE   		is free sequence (no space allowed, a-z,A-X,1-9-)
+#	SIZE   		is numeric sequence, this is the tape size in megabytes
+#	LASTUSED	is a numeric date it is the last uses 
+#			date (SETTED by backd),set it to 0 for a new tape
+#	FROZEN		The number of day the tape must be kept
+#	CYCLED		The number of time that media was used
+#			(incremented by backd)
+#	CURPID		Used by backd to now which sub-daemon
+#			had locked the tape.
+#-----------------------------------------------------------------------------
+#TapeID		Frmt	Size	lastused	frozen	cycled	curpid
+#-----------------------------------------------------------------------------
+#DDS-2193	DDS	 8192	 19981021	 00001	 016	 04730	# 
+#DDS-2194	DDS	 8192	 00000000	 00000	 000	 00000
+#DDS-2195	DDS	 8192	 00000000	 00000	 000	 00000
+#DDS-2196	DDS	 8192	 00000000	 00000	 000	 00000
+#DDS-2197	DDS	 8192	 00000000	 00000	 000	 00000
+#DDS-2198	DDS	 8192	 00000000	 00000	 000	 00000
+#DDS-2199	DDS	 8192	 00000000	 00000	 000	 00000
+#-----------------------------------------------------------------------------
+#example of tape list
+USB-0000	USB-64	65536 	 19690101	   100    50	 00000	#old tape
+#USB-2003	USB-64  65536 	 20230101	 00001	 000	 00000	# 
+#USB-2004	USB-64  65536	 20230101	 00001	 000	 00000	# 
+#USB-2005	USB-64  65536	 20230101	 00001	 000	 00000
+#USB-2006	USB-64  65536	 20230101	 00001	 000	 00000	# 
+#-----------------------------------------------------------------------------
