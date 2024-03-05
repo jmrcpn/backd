@@ -1,0 +1,10 @@
+drwxr-xr-x   2 jmp      safe            0 Mar  4 07:46 test-area/tobackup/sys0/
+-rw-r--r--   1 jmp      safe           29 Jan 30 08:37 test-area/tobackup/sys0/data1
+-rw-r--r--   1 jmp      safe           29 Jan 30 08:37 test-area/tobackup/sys0/data2
+-rw-r--r--   1 jmp      safe           29 Jan 30 08:37 test-area/tobackup/sys0/data3
+-rw-r--r--   1 jmp      safe           29 Jan 30 08:37 test-area/tobackup/sys0/data4
+drwxr-xr-x   2 jmp      safe            0 Jan 30 08:38 test-area/tobackup/sys2/
+-rw-r--r--   1 jmp      safe           29 Jan 30 08:37 test-area/tobackup/sys2/data1
+-rw-r--r--   1 jmp      safe           29 Jan 30 08:37 test-area/tobackup/sys2/data2
+-rw-r--r--   1 jmp      safe           29 Jan 30 08:37 test-area/tobackup/sys2/data3
+-rw-r--r--   1 jmp      safe           29 Jan 30 08:37 test-area/tobackup/sys2/data4
