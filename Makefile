@@ -46,7 +46,9 @@ install	:
 	   @ install -d $(DESTDIR)/usr/lib/$(APPNAME)/shell
 	   @ install shell/sendmsg.sh $(DESTDIR)/usr/lib/$(APPNAME)/shell
 	   @ install -d $(DESTDIR)/etc/rc.d/init.d/
-	   @ install -m754 shell/backd.sh $(DESTDIR)/etc/rc.d/init.d/backd
+	   @ install -m754					\
+			contrib/systemv/backd.sh		\
+			$(DESTDIR)/etc/rc.d/init.d/backd
 	   @ install -d $(DESTDIR)/etc/sysconfig
 	   @ install -m644 conf/backd.conf $(DESTDIR)/etc/sysconfig/backd
 	   @ install -m444 man/backd.8 $(DESTDIR)/usr/share/man/man8/
