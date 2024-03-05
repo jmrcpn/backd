@@ -386,7 +386,8 @@ while (proceed==true) {
         }
       break;
     case 1      :       //check if there is tape media match
-      (void) rou_alert(1,"looking for a tape; <%s> media compatible",media);
+      (void) rou_alert(1,"Checking if tape <%s> is media <%s> compatible",
+                          challenger->id[0],media);
       if (strcmp(media,challenger->media)!=0) 
         phase=999;      //no need to go further
       break;
