@@ -22,7 +22,6 @@ typedef struct  {
         char    media[MEDSIZE]; //tape media type
         int     numrot;         //tape number of rotation (aging)
         time_t  stamp;          //backup stamp date
-        time_t  tobkept;        //Backup retention date
         char    vers[10];       //backd version used to do backup
         char    device[60];     //device used by tape
         u_int   numsegment;     //number of backup segment

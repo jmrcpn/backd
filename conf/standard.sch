@@ -23,8 +23,8 @@ media=USB-64
 #
 #---------------------------------------------------------
 #kept, specify (in days) how long you want to keep that backup
-#
-keep=5
+#21 days (3 weeks in this example)
+keep=21
 #
 #---------------------------------------------------------
 #now define what are the file level you want to include

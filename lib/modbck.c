@@ -342,6 +342,9 @@ while (proceed==true) {
       break;
     case 2      :       //opening tape device
       used->stamp=rou_systime();
+      used->lastused=rou_normdate(time((time_t *)0));
+      used->frozen=sch->days;   //reporting how log the tape must be freezed
+      used->cycled++;
       if ((handle=dev_open(ready->devname,ready->blksize,O_RDWR))==(THANDLE *)0) {
         (void) rou_alert(0,"Unable to open tape device <%s> (error=<%s>)",
                             ready->devname,strerror(errno));
@@ -388,11 +391,6 @@ while (proceed==true) {
       break;
     case 7      :       //unlock acces to device
       (void) tap_lockdevice(ready,LCK_UNLOCK);
-      break;
-    case 8      :       //end of backup
-      used->lastused=rou_normdate(time((time_t *)0));
-      used->frozen=sch->days;
-      used->cycled++;
       break;
     case 9      :       //backup successful
       (void) msg_sendmsg(msg_ok,sch,used,ready);

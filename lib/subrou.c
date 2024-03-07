@@ -21,7 +21,7 @@
 
 //version definition 
 #define VERSION "3.2"
-#define RELEASE "8"
+#define RELEASE "11"
 
 /*current debug level					*/
 int debug=0;
@@ -371,13 +371,11 @@ if (clock_gettime(CLOCK_MONOTONIC,chrono)<0) {
   }
 else {
   if (start!=(TIMESPEC *)0) {
-    if ((chrono->tv_nsec-start->tv_nsec)<0) {
-      chrono->tv_sec  -= (start->tv_sec-1);
-      chrono->tv_nsec -= start->tv_nsec+1e6;
-      }
-     else {
-      chrono->tv_sec  -= start->tv_sec;
-      chrono->tv_nsec -= start->tv_nsec;
+    chrono->tv_sec-=start->tv_sec;
+    chrono->tv_nsec-=start->tv_nsec;
+    if (chrono->tv_nsec<0) {
+      chrono->tv_sec--;
+      chrono->tv_nsec+=1e6;
       }
     }
   }
