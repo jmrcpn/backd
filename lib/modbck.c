@@ -283,7 +283,10 @@ while (proceed==true) {
       break;
     }
   if ((reload==true)||(hangup==true)) {
-    ready=(DEVTYP *)0;
+    if (ready!=(DEVTYP *)0) {
+      (void) tap_lockdevice(ready,LCK_UNLOCK);
+      ready=(DEVTYP *)0;
+      }
     break;
     }
   if ((ready!=(DEVTYP *)0)&&(atonce==true)) {
