@@ -36,7 +36,7 @@ case "$1" in
   start)
 	# Start daemons.
 	log_info_msg "Starting backd daemon..."
-	$CMD $OPTIONS
+	$CMD $OPTIONS > /dev/null
 	evaluate_retval
 	;;
 

@@ -214,6 +214,8 @@ lastcall=(time_t)0;
 gooddev=(DEVTYP **)0;
 ready=(DEVTYP *)0;
 atonce=false;          //removing received previous "atonce" signal
+reload=false;
+hangup=false;
 phase=0;
 proceed=true;
 while (proceed==true) {
