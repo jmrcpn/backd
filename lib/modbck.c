@@ -409,7 +409,9 @@ while (proceed==true) {
   if ((reload==true)||(hangup==true)) {
     (void) rou_alert(0,"Backup on tape <%s> aborted by signal",used->id[0]);
     (void) tap_lockdevice(ready,LCK_UNLOCK);
-    phase=999;          //break, break, break...
+    if (handle!=(THANDLE *)0) 
+      (void) dev_close(handle,false);
+    proceed=false;          //break, break, break...
     }
   }
 ready=dev_freedev(ready);
