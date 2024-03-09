@@ -562,8 +562,12 @@ while (proceed==true) {
         phase=999;      //no other backup to do
       break;
     case 5      :       //Just relaxe little bit
-      (void) rou_alert(0,"Doing backup cleanup, waiting <%s>"
-                         "to check about next backup",rou_getstrtime(delais));
+      time_t curdate;
+
+      (void) time(&curdate);
+      curdate+=delais;
+      (void) rou_alert(0,"Doing backup cleanup, waiting until <%s> "
+                         "to check again about next backup",rou_getstrtime(curdate));
       (void) sleep(delais);
       delais*=2;
       if (delais>MAXDELAIS)
