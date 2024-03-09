@@ -21,7 +21,7 @@
 
 //version definition 
 #define VERSION "3.2"
-#define RELEASE "14"
+#define RELEASE "15"
 
 /*current debug level					*/
 int debug=0;

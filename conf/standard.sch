@@ -10,10 +10,9 @@
 #such you can put as many backup as requested to fill up
 #the tape
 #format is (a la crontab) hours, day of the month, month, day of the week
-#in this example that backup will done at 3 AM, every sunday for
-#January, Marsh, May
+#in this example that backup will done at 3 AM, every Saturday
 #
-frequency=3 * * *
+frequency=3 * * Sat
 #
 #---------------------------------------------------------
 #media specify on which media type you want to put that

@@ -26,8 +26,8 @@ PROG=backd3
 PID_FILE=/var/run/$PROG/$PROG.lock
 CMD=/usr/bin/$PROG
 
-if [ -f /etc/sysconfig/backd ]; then
- . /etc/sysconfig/backd
+if [ -f /etc/default/backd ]; then
+ . /etc/default/backd
 fi
 
 # See how we were called.

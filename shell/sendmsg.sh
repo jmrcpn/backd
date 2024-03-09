@@ -26,8 +26,8 @@ SPOOLDIR=$BASE/var/spool/backd3/
 #--------------------------------------------------------------------------
 cd `dirname $0`
 #check about local configuration
-if [ -f $BASE/etc/sysconfig/backd ]; then
- . $BASE/etc/sysconfig/backd
+if [ -f $BASE/etc/default/backd ]; then
+ . $BASE/etc/default/backd
 fi
 
 #defining tape footer

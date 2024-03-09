@@ -49,8 +49,8 @@ install	:
 	   @ install -m754					\
 			contrib/systemv/backd.sh		\
 			$(DESTDIR)/etc/rc.d/init.d/backd
-	   @ install -d $(DESTDIR)/etc/sysconfig
-	   @ install -m644 conf/backd.conf $(DESTDIR)/etc/sysconfig/backd
+	   @ install -d $(DESTDIR)/etc/default
+	   @ install -m644 conf/backd.conf $(DESTDIR)/etc/default/backd
 	   @ install -m444 man/backd.8 $(DESTDIR)/usr/share/man/man8/
 	   @ install -d $(DESTDIR)/var/spool/$(APPNAME)
 	   @ install -d $(DESTDIR)/var/run/$(APPNAME)

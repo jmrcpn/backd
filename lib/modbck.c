@@ -397,7 +397,8 @@ while (proceed==true) {
     case 7      :       //unlock acces to device
       (void) tap_lockdevice(ready,LCK_UNLOCK);
       break;
-    case 9      :       //backup successful
+    case 8      :       //backup successful
+      (void) rou_alert(0,"Backup successfully completed and sending reports");
       (void) msg_sendmsg(msg_ok,sch,used,ready);
       break;
     default     :
@@ -514,12 +515,15 @@ return status;
 static int waitandsee(ACTTYP delay)
 
 {
+#define MAXDELAIS       (24*60*60)
 int status;
+time_t delais;
 SCHTYP **todo;
 register int phase;
 register int proceed;
 
 status=0;
+delais=(time_t)60;
 (void) settrap(true);
 todo=(SCHTYP **)0;
 phase=0;
@@ -558,12 +562,12 @@ while (proceed==true) {
         phase=999;      //no other backup to do
       break;
     case 5      :       //Just relaxe little bit
-      int delays;
-
-      delays=60;
-      (void) rou_alert(0,"Doing backup cleanup, waiting '%d' seconds "
-                         "to check about next backup",delays);
-      (void) sleep(delays);
+      (void) rou_alert(0,"Doing backup cleanup, waiting <%s>"
+                         "to check about next backup",rou_getstrtime(delais));
+      (void) sleep(delais);
+      delais*=2;
+      if (delais>MAXDELAIS)
+        delais=MAXDELAIS;
       phase=0;
       break;
     default	:	//exiting procedure
@@ -574,6 +578,7 @@ while (proceed==true) {
   }
 (void) settrap(false);
 return status;
+#undef  MAXDELAIS
 }
 /*
 ^L
