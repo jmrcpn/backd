@@ -87,7 +87,7 @@ case "$2" in
     MSG=$MSG"\n"
     ;;
   "M_NOAVAIL"	)	# $3 backup time
-    SUBJECT="Warning: Found no tape abailable to proceed with backup"
+    SUBJECT="Warning: Found no tape available to proceed with backup"
     MSG="Backup scheduled at '$3', But found no tape available\n"
     MSG=$MSG"to proceed.\n"
     MSG=$MSG"\n"
