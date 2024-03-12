@@ -91,7 +91,7 @@ case "$2" in
     MSG="Backup scheduled at '$3', But found no tape available\n"
     MSG=$MSG"to proceed.\n"
     MSG=$MSG"\n"
-    MSG=$MSG"Please mark new tape.\n"
+    MSG=$MSG"Please mark new tapes.\n"
     MSG=$MSG"\n"
     ;;
 
