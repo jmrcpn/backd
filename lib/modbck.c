@@ -458,6 +458,7 @@ while (proceed==true) {
       if ((used=tap_isatapeready(sch))==(TAPTYP *)0)        {
         (void) rou_alert(0,"Unable to do backup, (no tape available!)");
         (void) rou_alert(0,"--> Check configuration within the \"tapelist\" file");
+        (void) msg_sendmsg(msg_notape,sch,(TAPTYP *)0,(DEVTYP *)0);
         phase=999;      //no need to go further
         }
       break;

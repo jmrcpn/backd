@@ -19,6 +19,7 @@ typedef enum    {
     msg_ok,             //Backup successfully done
     msg_insert,         //Insert tape
     msg_tapeready,      //Tape found within device
+    msg_notape,         //no tape available for backup
     msg_unknown         //unexpected  message (bug!)
     }MSGENU;
 

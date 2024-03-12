@@ -99,6 +99,18 @@ switch (msg) {
                     tape->id[0],device->devname,
                     rou_getstrfulldate(schedule->start));
     break;
+  case msg_notape       :
+    msgtyp="M_NOAVAIL";  //sendmsg.sh no tape availablet message
+    (void) snprintf(arguments,sizeof(arguments)-1,
+                    "'%s'",
+                    rou_getstrfulldate(schedule->start));
+    (void) snprintf(message,sizeof(message)-1,
+                    "Found NO tape available to do backup\n"
+                    "backup starting scheduled at '%s'\n"
+                    "Please use marker to mark new tape "
+                    "to be added to 'tapelist' file.",
+                    rou_getstrfulldate(schedule->start));
+    break;
   default               :
     (void) rou_alert(0,"%s, message type unexpected (bug!!)");
     break;

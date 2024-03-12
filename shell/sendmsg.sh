@@ -86,6 +86,15 @@ case "$2" in
     MSG=$MSG"Backup starting is scheduled at $4\n"
     MSG=$MSG"\n"
     ;;
+  "M_NOAVAIL"	)	# $3 backup time
+    SUBJECT="Warning: Found no tape abailable to proceed with backup"
+    MSG="Backup scheduled at '$3', But found no tape available\n"
+    MSG=$MSG"to proceed.\n"
+    MSG=$MSG"\n"
+    MSG=$MSG"Please mark new tape.\n"
+    MSG=$MSG"\n"
+    ;;
+
   *		)
     SUBJECT="Unknow error about tape (Bug?)"
     MSG="There is something really bad going on with backup process.\n"
