@@ -21,7 +21,7 @@
 
 //version definition 
 #define VERSION "3.2"
-#define RELEASE "19"
+#define RELEASE "20"
 
 /*current debug level					*/
 int debug=0;
@@ -375,7 +375,7 @@ else {
     chrono->tv_nsec-=start->tv_nsec;
     if (chrono->tv_nsec<0) {
       chrono->tv_sec--;
-      chrono->tv_nsec+=1e6;
+      chrono->tv_nsec+=1e9;     //1.000.000.000 (1 sec in nsec)
       }
     }
   }
